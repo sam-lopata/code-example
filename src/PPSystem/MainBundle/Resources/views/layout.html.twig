@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}PPSystem{% endblock %}</title>
+        <link href="{{ asset('css/reset.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="sidebar">
+            {{ menu('main') }}
+        </div>    
+        
+        {% if app.session.flash('notice') %}
+            <div class="flash-message">
+                <em>Notice</em>: {{ app.session.flash('notice') }}
+            </div>
+        {% endif %}
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        {% if code is defined %}
+            <h2>Code behind this page</h2>
+            <div class="symfony-content">{{ code|raw }}</div>
+        {% endif %}
+            
+    </body>
+</html>

@@ -1,0 +1,115 @@
+#sidebar {
+    width: 200px;
+    float: left;
+    padding: 10px 5px;
+}
+
+#content {
+    margin-left: 200px;
+    border-left: 1px dotted black;
+    padding: 10px 5px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+
+/**
+ * Menu 
+ */ 
+#main_menu li.current a {
+    font-weight: bold;
+}
+
+#main_menu li.child-level-1 {
+    padding-left: 5px;
+}
+
+#main_menu li.child-level-1 a {
+    font-weight: normal;
+}
+
+#main_menu li.child-level-1 .current a {
+    font-weight: bold;
+}
+
+
+/**
+ * Forms styles
+ */
+div.form {
+    margin: 10px;
+    height: 360px;
+}
+
+table.form td {
+    padding: 5px 10px 5px 0px;
+    vertical-align: top;
+}
+
+table.form select {
+    margin: 0px;
+}
+
+input[type="submit"], input[type="button"] {
+    padding: 2px 5px;    
+    cursor: pointer;
+}
+
+
+/**
+ * Results table
+ */
+table.serp_results {
+    margin: 5px; 
+}
+
+table.serp_results th {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+th.title {
+    width: 200px;
+}
+
+th.uri {
+    width: 200px;
+}
+
+th.summary {
+    width: 400px;
+}
+
+table.serp_results td {
+    padding: 8px;
+    margin-bottom: 5px;
+    vertical-align: top;
+    border-bottom: 1px dashed;
+    
+}
+
+
+span.info {
+   margin: 5px; 
+   display: block;
+}
+
+span.checkbox {
+    padding: 2px;
+}
+
+span.choice_widget, span.choice_label{
+    padding: 2px 2px 2px 5px;
+}
+
+span.form_label {
+    
+}
+

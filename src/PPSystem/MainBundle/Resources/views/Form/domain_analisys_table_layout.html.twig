@@ -1,0 +1,52 @@
+{# src/PPSystem/MainBundle/Resources/views/Form/fields.html.twig #}
+{% extends 'PPSystemMainBundle:Form:table_layout.html.twig' %}
+
+{% block field_row %}
+{% spaceless %}
+        <span class="form_label">{{ form_label(form) }}</span>
+        <span class="form_widget">{{ form_widget(form) }}</span>
+        <span class="form_errors">{{ form_errors(form) }}</span>
+{% endspaceless %}
+{% endblock field_row %}
+
+{% block field_rows %}
+{% spaceless %}
+    {{ form_errors(form) }}
+    {% for child in form.children %}
+        <div class="form_field">{{ form_row(child) }}</div>
+    {% endfor %}
+{% endspaceless %}
+{% endblock field_rows %}
+
+{% block checkbox_field %}
+{% spaceless %}
+    <input type="checkbox" {{ block('field_attributes') }}{% if field.hasValue %} value="{{ field.value }}"{% endif %}{% if field.ischecked %} checked="checked"{% endif %} />
+{% endspaceless %}
+{% endblock checkbox_field %}
+
+{% block choice_widget %}
+{% spaceless %}
+    {% if expanded %}
+        <div {{ block('container_attributes') }}>
+        {% for choice, child in form %}
+            <span class="choice_widget">{{ form_widget(child) }}</span>
+            <span class="choice_label">{{ form_label(child) }}</span>
+            <br />
+        {% endfor %}
+        </div>
+    {% else %}
+    <select {{ block('attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if not multiple and not required %}
+            <option value="">{{ empty_value }}</option>
+        {% endif %}
+        {% if preferred_choices|length > 0 %}
+            {% set options = preferred_choices %}
+            {{ block('options') }}
+            <option disabled="disabled">{{ separator }}</option>
+        {% endif %}
+        {% set options = choices %}
+        {{ block('options') }}
+    </select>
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget %}

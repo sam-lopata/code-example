@@ -1,0 +1,15 @@
+{% extends 'PPSystemMainBundle::layout.html.twig' %}
+{% form_theme form 'PPSystemMainBundle:Form:table_layout.html.twig' %}
+
+{% block title %}PPSystem{% endblock %}
+
+{% block content %}
+    <div class="domains_forms">
+        <div class="form">
+            <h3>SERP output</h3>
+            <form action="{{ path('domain_serp') }}" method="post" >
+                {{ form_widget(form, { 'attr': {'class': 'form'} }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
